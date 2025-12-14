@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alessandro Altamirano | Ingeniería Industrial</title>
+    <meta name="description"
+        content="Portafolio de Alessandro Edward Altamirano Salazar, estudiante de Ingeniería Industrial especializado en optimización de procesos y mejora continua.">
+
+    <!-- Fonts: Montserrat & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;800&family=Outfit:wght@400;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Model Viewer for 3D Elements -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Background Particles -->
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">Alessandro Altamirano<span class="dot">.</span></a>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Inicio</a>
+            <a href="#about">Sobre Mí</a>
+            <a href="#skills">Habilidades</a>
+            <a href="#projects">Proyectos</a>
+            <a href="#contact">Contacto</a>
+        </nav>
+
+        <div class="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1 class="hero-title">Alessandro Altamirano</h1>
+            <h2 class="hero-subtitle">Ingeniería Industrial</h2>
+            <div class="animated-text">
+                <h3><span class="multiple-text"></span></h3>
+            </div>
+            <p class="hero-desc">Estudiante de Ingeniería Industrial (9.º ciclo) enfocado en logística,
+                mejora continua
+                y análisis de datos. Experto en optimizar procesos mediante herramientas digitales como
+                Power BI, Python
+                y Automatización.</p>
+
+            <div class="btn-group">
+                <a href="CV_Alessandro_Altamirano.pdf" target="_blank" class="btn btn-primary">Ver
+                    CV</a>
+                <a href="#contact" class="btn btn-secondary">Contactar</a>
+            </div>
+        </div>
+
+        <div class="home-img">
+            <div class="hero-image-container">
+                <model-viewer
+                    src="https://raw.githack.com/KhronosGroup/glTF-Sample-Models/master/2.0/GearboxAssy/glTF-Binary/GearboxAssy.glb"
+                    alt="Ensamblaje de Caja de Cambios Industrial" auto-rotate camera-controls shadow-intensity="1"
+                    camera-orbit="45deg 55deg 2.5m" exposure="0.8" environment-image="neutral" class="hero-model-3d">
+                </model-viewer>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="heading">Perfil <span>Profesional</span></h2>
+
+        <div class="about-content-wrapper">
+            <!-- Main Bio Panel -->
+            <div class="bio-panel">
+                <div class="panel-header">
+                    <span class="panel-id">BIO_DATA_01</span>
+                    <div class="panel-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <p class="bio-text">
+                        Estudiante de <strong>Ingeniería Industrial</strong> (9.º ciclo) en la
+                        Universidad Continental,
+                        apasionado por transformar datos complejos en estrategias claras de
+                        optimización.
+                        <br><br>
+                        Mi enfoque técnico combina metodologías tradicionales como <strong>Lean
+                            Manufacturing</strong>
+                        con herramientas de automatización moderna (Python, Power Platform). No solo
+                        busco reducir
+                        costos, sino construir sistemas resilientes y eficientes.
+                    </p>
+                    <div class="status-block">
+                        <span class="status-label">Estado Actual:</span>
+                        <span class="status-badge pulse"><i class="fa-solid fa-circle"></i> Trabajando
+                            en Primax</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Grid -->
+            <div class="info-grid">
+                <!-- Languages -->
+                <div class="tech-card">
+                    <div class="card-icon-small">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h4 class="card-title-small">Competencia Lingüística</h4>
+                    <div class="lang-list">
+                        <div class="lang-item">
+                            <img src="https://flagcdn.com/w40/es.png" alt="España" class="lang-flag">
+                            <div class="lang-bar-container">
+                                <span class="lang-name">Español</span>
+                                <div class="lang-bar">
+                                    <div class="fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lang-item">
+                            <img src="https://flagcdn.com/w40/us.png" alt="EE.UU." class="lang-flag">
+                            <div class="lang-bar-container">
+                                <span class="lang-name">Inglés (Intermedio)</span>
+                                <div class="lang-bar">
+                                    <div class="fill" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certs -->
+                <div class="tech-card">
+                    <div class="card-icon-small">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <h4 class="card-title-small">Certificaciones Clave</h4>
+                    <ul class="cert-list">
+                        <li><i class="fa-solid fa-check-double"></i> Power BI Data Analytics
+                            <span>(Santander)</span>
+                        </li>
+                        <li><i class="fa-solid fa-check-double"></i> Python Essentials
+                            <span>(OpenEDG)</span>
+                        </li>
+                        <li><i class="fa-solid fa-check-double"></i> Excel Avanzado <span>(Fund.
+                                Telefónica)</span></li>
+                        <li><i class="fa-solid fa-check-double"></i> Logística Internacional
+                            <span>(Udemy)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <h2 class="heading">Arsenal <span>Técnico</span></h2>
+
+        <div class="skills-grid-wrapper">
+            <!-- Tech Stack -->
+            <div class="skill-category tech-stack-panel">
+                <div class="skill-header">
+                    <i class="fa-solid fa-code-branch"></i>
+                    <h3>Tecnologías & Herramientas</h3>
+                </div>
+                <div class="skill-tags-group">
+                    <!-- Data & Analytics -->
+                    <div class="skill-subgroup">
+                        <span class="subgroup-label">Data Analysis</span>
+                        <div class="tags-container">
+                            <span class="skill-pill"><i class="fa-solid fa-chart-simple"></i> Power
+                                BI</span>
+                            <span class="skill-pill"><i class="fa-solid fa-file-excel"></i> Excel
+                                Expert</span>
+                            <span class="skill-pill"><i class="fa-solid fa-database"></i> SQL</span>
+                            <span class="skill-pill"><i class="fa-brands fa-python"></i> Python
+                                (Pandas)</span>
+                        </div>
+                    </div>
+
+                    <!-- Process & Automation -->
+                    <div class="skill-subgroup">
+                        <span class="subgroup-label">Automatización & Procesos</span>
+                        <div class="tags-container">
+                            <span class="skill-pill"><i class="fa-solid fa-bolt"></i> Power
+                                Automate</span>
+                            <span class="skill-pill"><i class="fa-solid fa-network-wired"></i>
+                                n8n</span>
+                            <span class="skill-pill"><i class="fa-solid fa-industry"></i> Lean
+                                Mfg</span>
+                            <span class="skill-pill"><i class="fa-solid fa-boxes-stacked"></i>
+                                MRP/ERP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="skill-category soft-skills-panel">
+                <div class="skill-header">
+                    <i class="fa-solid fa-brain"></i>
+                    <h3>Habilidades Blandas</h3>
+                </div>
+                <div class="soft-grid">
+                    <div class="soft-item">
+                        <i class="fa-solid fa-comments"></i>
+                        <span>Comunicación Efectiva</span>
+                    </div>
+                    <div class="soft-item">
+                        <i class="fa-solid fa-people-group"></i>
+                        <span>Liderazgo de Equipos</span>
+                    </div>
+                    <div class="soft-item">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span>Pensamiento Crítico</span>
+                    </div>
+                    <div class="soft-item">
+                        <i class="fa-solid fa-person-running"></i>
+                        <span>Adaptabilidad</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="portfolio" id="projects">
+        <h2 class="heading">Proyectos <span>Destacados</span></h2>
+
+        <div class="portfolio-container">
+            <!-- Project 1: VASMAD -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="header-main">
+                        <h4>DEYARLIN S.A.C (VASMAD)</h4>
+                        <span class="project-role">Optimización Logística</span>
+                    </div>
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <div class="project-body">
+                    <p class="project-main-desc">Proyecto integral de mejora en cadena de suministro y
+                        almacenes.</p>
+                    <ul class="achievements-list">
+                        <li><i class="fa-solid fa-check"></i> Reducción de <strong>30%</strong> en
+                            tiempos de descarga
+                            mediante 5S.</li>
+                        <li><i class="fa-solid fa-check"></i> Automatización de inventarios con
+                            <strong>Power
+                                Automate</strong>.
+                        </li>
+                        <li><i class="fa-solid fa-check"></i> Reducción de <strong>15%</strong> en
+                            costos por
+                            desabastecimiento (MRP).</li>
+                        <li><i class="fa-solid fa-check"></i> Análisis costo-beneficio para
+                            certificación ISO 9001.</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span>Power Automate</span>
+                        <span>MRP</span>
+                        <span>5S</span>
+                        <span>ISO 9001</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: DURAMAS -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="header-main">
+                        <h4>DURAMAS SP S.A.C</h4>
+                        <span class="project-role">Mantenimiento RCM</span>
+                    </div>
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
+                <div class="project-body">
+                    <p class="project-main-desc">Implementación de Mantenimiento Centrado en
+                        Confiabilidad.</p>
+                    <ul class="achievements-list">
+                        <li><i class="fa-solid fa-check"></i> Ahorro anual estimado de
+                            <strong>S/71,860</strong>
+                            evitando paradas.
+                        </li>
+                        <li><i class="fa-solid fa-check"></i> Reducción del <strong>MTTR en 30%</strong>
+                            con protocolos
+                            estandarizados.</li>
+                        <li><i class="fa-solid fa-check"></i> Optimización de KPI: Disponibilidad
+                            <strong>98.5%</strong>.
+                        </li>
+                        <li><i class="fa-solid fa-check"></i> Inspecciones termográficas preventivas.
+                        </li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span>RCM</span>
+                        <span>KPIs</span>
+                        <span>Termografía</span>
+                        <span>Gestión de Activos</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: AJEGROUP -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="header-main">
+                        <h4>AJEGROUP (Agua Cielo)</h4>
+                        <span class="project-role">Reestructuración Operativa</span>
+                    </div>
+                    <i class="fa-solid fa-bottle-water"></i>
+                </div>
+                <div class="project-body">
+                    <p class="project-main-desc">Análisis y mejora de operaciones post-COVID en selva.
+                    </p>
+                    <ul class="achievements-list">
+                        <li><i class="fa-solid fa-check"></i> Disminución de <strong>25%</strong> en
+                            faltantes de
+                            inventario (ERP+MRP).</li>
+                        <li><i class="fa-solid fa-check"></i> Reducción de tiempos de entrega en
+                            <strong>20%</strong>
+                            (Modelo Tarapoto).
+                        </li>
+                        <li><i class="fa-solid fa-check"></i> Resolución del <strong>67%</strong> de
+                            defectos de calidad
+                            (Pareto).</li>
+                        <li><i class="fa-solid fa-check"></i> Análisis de sobrecostos logísticos.</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span>ERP</span>
+                        <span>Pareto</span>
+                        <span>Logística</span>
+                        <span>Calidad</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <h2 class="heading">Mi <span>Trayectoria</span></h2>
+
+        <div class="timeline-items">
+            <!-- Experience -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2025 - Presente</div>
+                <div class="timeline-content">
+                    <h3><i class="fa-solid fa-briefcase"></i> Primax</h3>
+                    <p style="color: var(--main-color); margin-bottom: 0.5rem;">Practicante Pre
+                        Profesional de Gestión
+                        Documental</p>
+                    <p>Optimización integral de flujos documentales y procesos administrativos.
+                        Implementación de
+                        estrategias de digitalización y control para asegurar la trazabilidad,
+                        eficiencia operativa e
+                        integridad de la información corporativa.</p>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2022 - Presente</div>
+                <div class="timeline-content">
+                    <img src="img/ucontinental_logo.png" alt="Universdad Continental" class="timeline-logo">
+                    <h3><i class="fa-solid fa-graduation-cap"></i> Ingeniería Industrial</h3>
+                    <p style="color: var(--main-color); margin-bottom: 0.5rem;">Universidad Continental
+                        (9.º Ciclo)</p>
+                    <p>Formación académica enfocada en la gestión estratégica de operaciones y Supply
+                        Chain. Desarrollo
+                        de competencias avanzadas en analítica de datos aplicada, simulación de sistemas
+                        y dirección de
+                        proyectos de mejora continua bajo estándares internacionales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="heading">Contacto <span>Directo</span></h2>
+
+        <div class="contact-container">
+            <div class="contact-grid">
+                <!-- Email Card -->
+                <a href="mailto:alessandro.altamirano23@gmail.com" class="contact-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-label">Correo Electrónico</span>
+                        <span class="card-value">alessandro.altamirano23@gmail.com</span>
+                    </div>
+                    <div class="card-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- WhatsApp Card -->
+                <a href="https://wa.me/51944521832" target="_blank" class="contact-card">
+                    <div class="card-icon">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-label">WhatsApp Personal</span>
+                        <span class="card-value">+51 944 521 832</span>
+                    </div>
+                    <div class="card-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- LinkedIn Card -->
+                <a href="https://www.linkedin.com/in/alessandroaltamirano/" target="_blank" class="contact-card">
+                    <div class="card-icon">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-label">LinkedIn Profesional</span>
+                        <span class="card-value">in/alessandroaltamirano</span>
+                    </div>
+                    <div class="card-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright">&copy; 2025 Alessandro Altamirano</p>
+                <span class="separator">|</span>
+                <p class="role">Ingeniería Industrial</p>
+            </div>
+
+            <div class="footer-right">
+                <p class="version">V 1.0</p>
+                <div class="footer-iconTop">
+                    <a href="#home"><i class="fa-solid fa-arrow-up"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot Widget -->
+    <button class="chat-toggle-btn" id="chat-toggle">
+        <i class="fa-solid fa-robot"></i>
+    </button>
+
+    <div class="chat-widget" id="chat-widget">
+        <div class="chat-header">
+            <div class="chat-title">
+                <i class="fa-solid fa-microchip"></i>
+                <span>Asistente IA</span>
+            </div>
+            <i class="fa-solid fa-xmark" id="close-chat"></i>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="message bot-message">
+                Hola, soy la IA de Alessandro. Pregúntame sobre sus proyectos, habilidades o experiencia.
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Escribe tu consulta..." autocomplete="off">
+            <button id="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

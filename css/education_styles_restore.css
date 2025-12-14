@@ -1,0 +1,103 @@
+/* Education Section Restore */
+.education-container {
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.education-box {
+    background: var(--bg-color);
+    border: 1px solid var(--text-color);
+    width: 100%;
+    box-shadow: 10px 10px 0px rgba(15, 23, 42, 0.1);
+    transition: 0.3s;
+}
+
+.education-box:hover {
+    box-shadow: 14px 14px 0px var(--main-color);
+    transform: translate(-5px, -5px);
+}
+
+.edu-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: var(--second-bg-color);
+    padding: 2rem;
+    border-bottom: 2px solid var(--text-color);
+}
+
+.edu-logo {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    filter: grayscale(100%);
+    transition: 0.3s;
+}
+
+.education-box:hover .edu-logo {
+    filter: none;
+}
+
+.edu-main-info h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+
+.edu-period {
+    font-size: 1rem;
+    color: var(--main-color);
+    font-weight: 700;
+    background: rgba(37, 99, 235, 0.1);
+    padding: 0.3rem 0.8rem;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.edu-content {
+    padding: 2.5rem;
+}
+
+.institution-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.edu-description {
+    font-size: 1rem;
+    color: var(--light-text);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.edu-relevant h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.edu-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    list-style: none;
+}
+
+.edu-list li {
+    font-size: 0.95rem;
+    color: var(--light-text);
+    background: var(--second-bg-color);
+    padding: 0.8rem 1rem;
+    border-left: 3px solid var(--main-color);
+    font-weight: 500;
+}
