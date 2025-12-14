@@ -213,18 +213,13 @@ function getSimulatedReply(text) {
     return "Interesante pregunta. Para más detalles específicos, te sugiero revisar la sección de 'Proyectos' o contactar a Alessandro directamente.";
 }
 
-// Clean Event Listeners
+// Event Listeners
 if (sendBtn) {
-    // Clonamos para eliminar listeners viejos sin problemas
-    const newSendBtn = sendBtn.cloneNode(true);
-    sendBtn.parentNode.replaceChild(newSendBtn, sendBtn);
-    newSendBtn.addEventListener('click', handleUserMessage);
+    sendBtn.addEventListener('click', handleUserMessage);
 }
 
 if (chatInput) {
-    const newInput = chatInput.cloneNode(true);
-    chatInput.parentNode.replaceChild(newInput, chatInput);
-    newInput.addEventListener('keypress', (e) => {
+    chatInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') handleUserMessage();
     });
 }
