@@ -107,7 +107,10 @@ closeChat.addEventListener('click', () => {
 // 🔒 SEGURIDAD: API Key
 // RECOMENDACIÓN CRÍTICA: Para proteger esta clave, ve a Google AI Studio > "Get API Key" > Edit API Key > "API restrictions" > "HTTP referrers"
 // Y añade tu dominio (ej: tu-nombre.github.io). Así nadie podrá usarla desde otro sitio.
-const API_KEY = 'AIzaSyBtE2cD4AggWmiiBg1dD4fDZ57hjotD1cE';
+// 🔒 SEGURIDAD: API Key
+// La clave ahora se carga desde  para no estar visible directamente en este archivo.
+// Asegúrate de que  esté en tu .gitignore si subes esto a GitHub.
+const API_KEY = CONFIG.API_KEY;
 
 // --- Main Chat Function ---
 async function handleUserMessage() {
