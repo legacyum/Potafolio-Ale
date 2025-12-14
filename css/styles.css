@@ -1479,7 +1479,7 @@ section {
 .chat-footer button {
     background: var(--main-color);
     border: none;
-    color: #fff;
+    color: #ffffff;
     width: 45px;
     height: 45px;
     display: flex;
