@@ -4,9 +4,11 @@ let navbar = document.querySelector('.navbar');
 
 menuIcon.onclick = () => {
     let icon = menuIcon.querySelector('i');
+    const isExpanded = menuIcon.getAttribute('aria-expanded') === 'true';
     if (icon) {
         icon.classList.toggle('fa-xmark'); // Using xmark for close
     }
+    menuIcon.setAttribute('aria-expanded', String(!isExpanded));
     navbar.classList.toggle('active');
 };
 
@@ -37,6 +39,7 @@ window.onscroll = () => {
     if (icon) {
         icon.classList.remove('fa-xmark');
     }
+    menuIcon.setAttribute('aria-expanded', 'false');
     navbar.classList.remove('active');
 };
 
@@ -88,6 +91,22 @@ const chatInput = document.getElementById('chat-input');
 const sendBtn = document.getElementById('send-btn');
 const chatBody = document.getElementById('chat-body');
 
+function openChatWidget() {
+    chatWidget.classList.add('active');
+    chatWidget.setAttribute('aria-hidden', 'false');
+    chatToggle.setAttribute('aria-expanded', 'true');
+    chatToggle.style.display = 'none';
+    chatInput.focus();
+}
+
+function closeChatWidget() {
+    chatWidget.classList.remove('active');
+    chatWidget.setAttribute('aria-hidden', 'true');
+    chatToggle.setAttribute('aria-expanded', 'false');
+    chatToggle.style.display = 'flex';
+    chatToggle.focus();
+}
+
 // State Manager
 let isRequesting = false; // Prevent double clicks
 let lastMessageTime = 0;
@@ -95,13 +114,18 @@ const RATE_LIMIT_MS = 2000; // 2 seconds cool-down
 
 // Toggle Widget
 chatToggle.addEventListener('click', () => {
-    chatWidget.classList.add('active');
-    chatToggle.style.display = 'none';
+    openChatWidget();
 });
 
 closeChat.addEventListener('click', () => {
-    chatWidget.classList.remove('active');
-    chatToggle.style.display = 'flex';
+    closeChatWidget();
+});
+
+chatWidget.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatWidget.classList.contains('active')) {
+        e.preventDefault();
+        closeChatWidget();
+    }
 });
 
 // 🔒 SEGURIDAD: API Key
