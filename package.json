@@ -1,0 +1,13 @@
+{
+  "name": "potafolio-ale",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portafolio personal con chatbot Gemini protegido por backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
