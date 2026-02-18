@@ -71,6 +71,8 @@
             <div class="hero-image-container">
                 <model-viewer
                     src="https://raw.githack.com/KhronosGroup/glTF-Sample-Models/master/2.0/GearboxAssy/glTF-Binary/GearboxAssy.glb"
+                    poster="img/industrial_hero.png"
+                    data-fallback-image="img/industrial_hero.png"
                     alt="Ensamblaje de Caja de Cambios Industrial" auto-rotate camera-controls shadow-intensity="1"
                     camera-orbit="45deg 55deg 2.5m" exposure="0.8" environment-image="neutral" class="hero-model-3d">
                 </model-viewer>
@@ -122,7 +124,7 @@
                     <h4 class="card-title-small">Competencia Lingüística</h4>
                     <div class="lang-list">
                         <div class="lang-item">
-                            <img src="https://flagcdn.com/w40/es.png" alt="España" class="lang-flag">
+                            <img src="https://flagcdn.com/w40/es.png" alt="España" class="lang-flag" onerror="this.onerror=null;this.src='img/flags/es.svg';">
                             <div class="lang-bar-container">
                                 <span class="lang-name">Español</span>
                                 <div class="lang-bar">
@@ -131,7 +133,7 @@
                             </div>
                         </div>
                         <div class="lang-item">
-                            <img src="https://flagcdn.com/w40/us.png" alt="EE.UU." class="lang-flag">
+                            <img src="https://flagcdn.com/w40/us.png" alt="EE.UU." class="lang-flag" onerror="this.onerror=null;this.src='img/flags/us.svg';">
                             <div class="lang-bar-container">
                                 <span class="lang-name">Inglés (Intermedio)</span>
                                 <div class="lang-bar">
@@ -485,9 +487,9 @@
     </div>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/vendor/scrollreveal-4.0.9.local.js"></script>
+    <script src="js/vendor/typed-2.0.16.local.js"></script>
+    <script src="js/vendor/particles-2.0.0.local.js"></script>
     <script src="js/main.js"></script>
 </body>
 
