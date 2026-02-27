@@ -107,7 +107,7 @@ closeChat.addEventListener('click', () => {
 // 🔒 SEGURIDAD: API Key
 // RECOMENDACIÓN CRÍTICA: Para proteger esta clave, ve a Google AI Studio > "Get API Key" > Edit API Key > "API restrictions" > "HTTP referrers"
 // Y añade tu dominio (ej: tu-nombre.github.io). Así nadie podrá usarla desde otro sitio.
-const API_KEY = 'AIzaSyBtE2cD4AggWmiiBg1dD4fDZ57hjotD1cE';
+const API_KEY = window.PORTFOLIO_CHAT_API_KEY || document.querySelector('meta[name="gemini-api-key"]')?.content || '';
 
 // --- Main Chat Function ---
 async function handleUserMessage() {
@@ -133,6 +133,14 @@ async function handleUserMessage() {
     // UI: Loading Indicator
     const loadingId = 'loading-' + now;
     addMessage('Analizando...', 'bot-message typing-indicator', loadingId);
+
+    if (!API_KEY) {
+        const loader = document.getElementById(loadingId);
+        if (loader) loader.remove();
+        addMessage(getSimulatedReply(text), 'bot-message');
+        isRequesting = false;
+        return;
+    }
 
     try {
         // 3️⃣ Protección: Prompt Hardening (Instrucciones de Seguridad)
@@ -170,13 +178,14 @@ async function handleUserMessage() {
         const loader = document.getElementById(loadingId);
         if (loader) loader.remove();
 
-        if (data.error) {
-            console.warn("API Error:", data.error);
-            // Fallback en caso de error de API (ej. cuota excedida)
+        const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+        if (data.error || !reply) {
+            console.warn("API Error o respuesta inválida:", data.error || data);
+            // Fallback en caso de error de API (ej. cuota excedida) o payload inesperado
             const simReply = getSimulatedReply(text);
             addMessage(simReply, 'bot-message');
         } else {
-            const reply = data.candidates[0].content.parts[0].text;
             addMessage(reply, 'bot-message');
         }
 
