@@ -148,7 +148,7 @@ async function handleUserMessage() {
         
         INFORMACIÓN DEL PERFIL (BASE DE CONOCIMIENTO):
         - Alessandro Altamirano: Estudiante 9no ciclo Ingeniería Industrial.
-        - Experiencia: Practicante Gestión Documental en Primax (2025), Optimización Logística en VasMad.
+        - Experiencia: Practicante Gestión Documental en Px Servicios Generales (Primax Ecuador) (2025), Optimización Logística en VasMad.
         - Tech Stack: Python (Pandas), SQL, Power BI, Excel Avanzado.
         - Soft Skills: Liderazgo, Comunicación Asertiva.
 
@@ -207,7 +207,7 @@ function addMessage(text, className, id = null) {
 function getSimulatedReply(text) {
     const t = text.toLowerCase();
     if (t.match(/hola|buen|hi/)) return "¡Hola! Soy el asistente de Alessandro. ¿Qué te gustaría saber sobre su experiencia en Ingeniería Industrial?";
-    if (t.match(/experiencia|primax|trabajo/)) return "En Primax (2025), Alessandro optimiza la gestión documental y flujos operativos usando herramientas digitales.";
+    if (t.match(/experiencia|primax|trabajo/)) return "En Px Servicios Generales (Primax Ecuador) (2025), Alessandro optimiza la gestión documental y flujos operativos usando herramientas digitales.";
     if (t.match(/habilidad|python|sql|power|excel/)) return "Destaca en Python, SQL y Power BI para análisis de datos, además de metodologías Lean Manufacturing.";
     if (t.match(/contacto|email|llamar/)) return "¡Hablemos! Puedes contactarlo por LinkedIn o descargar su CV aquí mismo.";
     return "Interesante pregunta. Para más detalles específicos, te sugiero revisar la sección de 'Proyectos' o contactar a Alessandro directamente.";
