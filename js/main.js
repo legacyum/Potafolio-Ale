@@ -2,13 +2,17 @@
 let menuIcon = document.querySelector('.menu-btn');
 let navbar = document.querySelector('.navbar');
 
-menuIcon.onclick = () => {
-    let icon = menuIcon.querySelector('i');
-    if (icon) {
-        icon.classList.toggle('fa-xmark'); // Using xmark for close
-    }
-    navbar.classList.toggle('active');
-};
+if (menuIcon && navbar) {
+    menuIcon.onclick = () => {
+        let icon = menuIcon.querySelector('i');
+        if (icon) {
+            icon.classList.toggle('fa-xmark'); // Using xmark for close
+        }
+        navbar.classList.toggle('active');
+    };
+} else {
+    console.warn('Navbar controls are missing: .menu-btn or .navbar not found.');
+}
 
 /* Scroll Sections Active Link */
 let sections = document.querySelectorAll('section');
@@ -25,7 +29,10 @@ window.onscroll = () => {
         if (top >= offset && top < offset + height) {
             navLinks.forEach(links => {
                 links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                const activeLink = document.querySelector('header nav a[href*=' + id + ']');
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
             });
         };
     });
@@ -33,52 +40,69 @@ window.onscroll = () => {
     /* Sticky Navbar style could be enhanced here if needed, but CSS handles fixed position */
 
     /* Remove toggle icon and navbar when click navbar link (scroll) */
-    let icon = menuIcon.querySelector('i');
-    if (icon) {
-        icon.classList.remove('fa-xmark');
+    if (menuIcon) {
+        let icon = menuIcon.querySelector('i');
+        if (icon) {
+            icon.classList.remove('fa-xmark');
+        }
     }
-    navbar.classList.remove('active');
+
+    if (navbar) {
+        navbar.classList.remove('active');
+    }
 };
 
 /* Scroll Reveal */
-ScrollReveal({
-    distance: '80px',
-    duration: 2000,
-    delay: 200
-});
+if (window.ScrollReveal) {
+    ScrollReveal({
+        distance: '80px',
+        duration: 2000,
+        delay: 200
+    });
 
-ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .skills-grid-wrapper, .project-card, .contact-card, .bio-panel, .info-grid', { origin: 'bottom' });
-ScrollReveal().reveal('.home-content h1, .hero-title', { origin: 'left' });
-ScrollReveal().reveal('.home-content p, .bio-text', { origin: 'right' });
+    ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+    ScrollReveal().reveal('.home-img, .skills-grid-wrapper, .project-card, .contact-card, .bio-panel, .info-grid', { origin: 'bottom' });
+    ScrollReveal().reveal('.home-content h1, .hero-title', { origin: 'left' });
+    ScrollReveal().reveal('.home-content p, .bio-text', { origin: 'right' });
+} else {
+    console.warn('ScrollReveal is not available on window. Animations were skipped.');
+}
 
 /* Typed JS */
-const typed = new Typed('.multiple-text', {
-    strings: ['Logística Integral', 'Mejora Continua', 'Análisis de Datos'],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 1000,
-    loop: true
-});
+if (window.Typed) {
+    const typed = new Typed('.multiple-text', {
+        strings: ['Logística Integral', 'Mejora Continua', 'Análisis de Datos'],
+        typeSpeed: 100,
+        backSpeed: 100,
+        backDelay: 1000,
+        loop: true
+    });
+} else {
+    console.warn('Typed is not available on window. Typing effect was skipped.');
+}
 
 /* Particles JS Config */
-particlesJS("particles-js", {
-    "particles": {
-        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-        "color": { "value": "#60a5fa" }, /* Lighter Blue */
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.8, "random": false }, /* Bright dots */
-        "size": { "value": 4, "random": true },
-        "line_linked": { "enable": true, "distance": 150, "color": "#60a5fa", "opacity": 0.15, "width": 1 }, /* Faint lines */
-        "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
-    },
-    "interactivity": {
-        "detect_on": "canvas",
-        "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-        "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } } /* Only bright on hover */
-    },
-    "retina_detect": true
-});
+if (window.particlesJS) {
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#60a5fa" }, /* Lighter Blue */
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.8, "random": false }, /* Bright dots */
+            "size": { "value": 4, "random": true },
+            "line_linked": { "enable": true, "distance": 150, "color": "#60a5fa", "opacity": 0.15, "width": 1 }, /* Faint lines */
+            "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+            "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } } /* Only bright on hover */
+        },
+        "retina_detect": true
+    });
+} else {
+    console.warn('particlesJS is not available on window. Background particles were skipped.');
+}
 
 /* Chatbot Logic */
 const chatToggle = document.getElementById('chat-toggle');
@@ -94,15 +118,23 @@ let lastMessageTime = 0;
 const RATE_LIMIT_MS = 2000; // 2 seconds cool-down
 
 // Toggle Widget
-chatToggle.addEventListener('click', () => {
-    chatWidget.classList.add('active');
-    chatToggle.style.display = 'none';
-});
+if (chatToggle && chatWidget) {
+    chatToggle.addEventListener('click', () => {
+        chatWidget.classList.add('active');
+        chatToggle.style.display = 'none';
+    });
+} else {
+    console.warn('Chat toggle setup skipped: #chat-toggle or #chat-widget not found.');
+}
 
-closeChat.addEventListener('click', () => {
-    chatWidget.classList.remove('active');
-    chatToggle.style.display = 'flex';
-});
+if (closeChat && chatWidget && chatToggle) {
+    closeChat.addEventListener('click', () => {
+        chatWidget.classList.remove('active');
+        chatToggle.style.display = 'flex';
+    });
+} else {
+    console.warn('Chat close setup skipped: #close-chat, #chat-widget or #chat-toggle not found.');
+}
 
 // 🔒 SEGURIDAD: API Key
 // RECOMENDACIÓN CRÍTICA: Para proteger esta clave, ve a Google AI Studio > "Get API Key" > Edit API Key > "API restrictions" > "HTTP referrers"
@@ -114,6 +146,11 @@ const API_KEY = CONFIG.API_KEY;
 
 // --- Main Chat Function ---
 async function handleUserMessage() {
+    if (!chatInput || !chatBody) {
+        console.warn('Chat message handling skipped: #chat-input or #chat-body not found.');
+        return;
+    }
+
     const text = chatInput.value.trim();
     if (!text) return;
 
