@@ -42,9 +42,9 @@
             <a href="#contact">Contacto</a>
         </nav>
 
-        <div class="menu-btn">
+        <button class="menu-btn" type="button" aria-label="Abrir menú de navegación" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
-        </div>
+        </button>
     </header>
 
     <!-- Hero Section -->
@@ -455,24 +455,27 @@
             <div class="footer-right">
                 <p class="version">V 1.0</p>
                 <div class="footer-iconTop">
-                    <a href="#home"><i class="fa-solid fa-arrow-up"></i></a>
+                    <a href="#home" aria-label="Ir arriba"><i class="fa-solid fa-arrow-up"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- AI Chatbot Widget -->
-    <button class="chat-toggle-btn" id="chat-toggle">
+    <button class="chat-toggle-btn" id="chat-toggle" type="button" aria-label="Abrir chat" aria-expanded="false"
+        aria-controls="chat-widget">
         <i class="fa-solid fa-robot"></i>
     </button>
 
-    <div class="chat-widget" id="chat-widget">
+    <div class="chat-widget" id="chat-widget" aria-hidden="true">
         <div class="chat-header">
             <div class="chat-title">
                 <i class="fa-solid fa-microchip"></i>
                 <span>Asistente IA</span>
             </div>
-            <i class="fa-solid fa-xmark" id="close-chat"></i>
+            <button type="button" id="close-chat" aria-label="Cerrar chat">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
         </div>
         <div class="chat-body" id="chat-body">
             <div class="message bot-message">
@@ -481,7 +484,7 @@
         </div>
         <div class="chat-footer">
             <input type="text" id="chat-input" placeholder="Escribe tu consulta..." autocomplete="off">
-            <button id="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+            <button id="send-btn" type="button" aria-label="Enviar mensaje"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
     </div>
 

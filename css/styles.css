@@ -156,6 +156,8 @@ span.dot {
     color: var(--text-color);
     display: none;
     cursor: pointer;
+    background: transparent;
+    border: none;
 }
 
 /* Sections Global */
@@ -267,6 +269,14 @@ section {
 .btn-secondary:hover {
     background: var(--text-color);
     color: var(--bg-color);
+}
+
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
 }
 
 .home-img {
@@ -1407,6 +1417,11 @@ section {
     cursor: pointer;
     color: var(--light-text);
     transition: 0.3s;
+    background: transparent;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #close-chat:hover {
@@ -1515,4 +1530,10 @@ section {
     color: var(--light-text);
     font-size: 0.8rem;
     margin-left: 1rem;
+}
+.chat-toggle-btn:focus-visible,
+#close-chat:focus-visible,
+.chat-footer button:focus-visible,
+.footer-iconTop a:focus-visible {
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.55);
 }
