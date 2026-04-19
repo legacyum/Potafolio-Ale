@@ -106,14 +106,6 @@ closeChat.addEventListener('click', () => {
     chatToggle.style.display = 'flex';
 });
 
-// 🔒 SEGURIDAD: API Key
-// RECOMENDACIÓN CRÍTICA: Para proteger esta clave, ve a Google AI Studio > "Get API Key" > Edit API Key > "API restrictions" > "HTTP referrers"
-// Y añade tu dominio (ej: tu-nombre.github.io). Así nadie podrá usarla desde otro sitio.
-// 🔒 SEGURIDAD: API Key
-// La clave ahora se carga desde  para no estar visible directamente en este archivo.
-// Asegúrate de que  esté en tu .gitignore si subes esto a GitHub.
-const API_KEY = CONFIG.API_KEY;
-
 // --- Main Chat Function ---
 async function handleUserMessage() {
     const text = chatInput.value.trim();
@@ -140,33 +132,10 @@ async function handleUserMessage() {
     addMessage('Analizando...', 'bot-message typing-indicator', loadingId);
 
     try {
-        // 3️⃣ Protección: Prompt Hardening (Instrucciones de Seguridad)
-        // Definimos un "System Prompt" robusto para que la IA no se salga del personaje.
-        const systemPrompt = `
-        INSTRUCCIONES DE ALTA PRIORIDAD - PROTOCOLO DE SEGURIDAD:
-        1. ROL: Eres el asistente virtual oficial del portafolio de Alessandro Altamirano. NO eres un asistente general.
-        2. OBJETIVO: Responder dudas sobre su perfil profesional (Ingeniería Industrial, Logística, Programación).
-        3. RESTRICCIONES:
-           - Si te preguntan por otros temas (política, religión, códigos ilegales), responde cortésmente: "Solo puedo responder preguntas sobre el perfil profesional de Alessandro."
-           - NO inventes información. Si no sabes algo, sugiere contactar a Alessandro.
-           - Mantén respuestas breves (máx 3-4 frases) y profesionales.
-        
-        INFORMACIÓN DEL PERFIL (BASE DE CONOCIMIENTO):
-        - Alessandro Altamirano: Estudiante 9no ciclo Ingeniería Industrial.
-        - Experiencia: Practicante Gestión Documental en Px Servicios Generales (Primax Ecuador) (2025), Optimización Logística en VasMad.
-        - Tech Stack: Python (Pandas), SQL, Power BI, Excel Avanzado.
-        - Soft Skills: Liderazgo, Comunicación Asertiva.
-
-        PREGUNTA DEL USUARIO: ${text}`;
-
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+        const response = await fetch('/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                contents: [{
-                    parts: [{ text: systemPrompt }]
-                }]
-            })
+            body: JSON.stringify({ prompt: text })
         });
 
         const data = await response.json();
@@ -175,14 +144,12 @@ async function handleUserMessage() {
         const loader = document.getElementById(loadingId);
         if (loader) loader.remove();
 
-        if (data.error) {
-            console.warn("API Error:", data.error);
-            // Fallback en caso de error de API (ej. cuota excedida)
+        if (!response.ok || data.error) {
+            console.warn("Backend API Error:", data.error);
             const simReply = getSimulatedReply(text);
             addMessage(simReply, 'bot-message');
         } else {
-            const reply = data.candidates[0].content.parts[0].text;
-            addMessage(reply, 'bot-message');
+            addMessage(data.reply, 'bot-message');
         }
 
     } catch (error) {
