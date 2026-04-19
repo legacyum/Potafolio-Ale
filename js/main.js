@@ -105,15 +105,32 @@ closeChat.addEventListener('click', () => {
 });
 
 // 🔒 SEGURIDAD: API Key
-// RECOMENDACIÓN CRÍTICA: Para proteger esta clave, ve a Google AI Studio > "Get API Key" > Edit API Key > "API restrictions" > "HTTP referrers"
-// Y añade tu dominio (ej: tu-nombre.github.io). Así nadie podrá usarla desde otro sitio.
-// 🔒 SEGURIDAD: API Key
-// La clave ahora se carga desde  para no estar visible directamente en este archivo.
-// Asegúrate de que  esté en tu .gitignore si subes esto a GitHub.
-const API_KEY = CONFIG.API_KEY;
+// Opción A (rápida): la clave se inyecta desde js/config.js en window.CONFIG.
+// Opción B (recomendada): mover la llamada a Gemini a un backend/proxy seguro y quitar la clave del cliente.
+const API_KEY = window.CONFIG?.API_KEY;
+const CHAT_CONFIG_ERROR_MSG = 'El chat IA no está configurado en este entorno. Completa js/config.js o usa un backend seguro.';
+const isChatEnabled = Boolean(API_KEY);
+
+if (!isChatEnabled) {
+    console.warn(CHAT_CONFIG_ERROR_MSG);
+    if (chatToggle) chatToggle.style.display = 'none';
+    if (chatInput) {
+        chatInput.disabled = true;
+        chatInput.placeholder = 'Chat no disponible';
+    }
+    if (sendBtn) sendBtn.disabled = true;
+    if (chatBody) {
+        const warning = document.createElement('div');
+        warning.className = 'message bot-message';
+        warning.innerText = CHAT_CONFIG_ERROR_MSG;
+        chatBody.appendChild(warning);
+    }
+}
 
 // --- Main Chat Function ---
 async function handleUserMessage() {
+    if (!isChatEnabled) return;
+
     const text = chatInput.value.trim();
     if (!text) return;
 
