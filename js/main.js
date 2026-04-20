@@ -43,28 +43,34 @@ window.onscroll = () => {
 };
 
 /* Scroll Reveal */
-ScrollReveal({
-    distance: '80px',
-    duration: 2000,
-    delay: 200
-});
+if (typeof ScrollReveal === 'function') {
+    ScrollReveal({
+        distance: '80px',
+        duration: 2000,
+        delay: 200
+    });
 
-ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .skills-grid-wrapper, .project-card, .contact-card, .bio-panel, .info-grid', { origin: 'bottom' });
-ScrollReveal().reveal('.home-content h1, .hero-title', { origin: 'left' });
-ScrollReveal().reveal('.home-content p, .bio-text', { origin: 'right' });
+    ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+    ScrollReveal().reveal('.home-img, .skills-grid-wrapper, .project-card, .contact-card, .bio-panel, .info-grid', { origin: 'bottom' });
+    ScrollReveal().reveal('.home-content h1, .hero-title', { origin: 'left' });
+    ScrollReveal().reveal('.home-content p, .bio-text', { origin: 'right' });
+}
 
 /* Typed JS */
-const typed = new Typed('.multiple-text', {
-    strings: ['Logística Integral', 'Mejora Continua', 'Análisis de Datos'],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 1000,
-    loop: true
-});
+if (typeof Typed === 'function') {
+    // eslint-disable-next-line no-new
+    new Typed('.multiple-text', {
+        strings: ['Logística Integral', 'Mejora Continua', 'Análisis de Datos'],
+        typeSpeed: 100,
+        backSpeed: 100,
+        backDelay: 1000,
+        loop: true
+    });
+}
 
 /* Particles JS Config */
-particlesJS("particles-js", {
+if (typeof particlesJS === 'function') {
+    particlesJS("particles-js", {
     "particles": {
         "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
         "color": { "value": "#60a5fa" }, /* Lighter Blue */
@@ -80,7 +86,24 @@ particlesJS("particles-js", {
         "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } } /* Only bright on hover */
     },
     "retina_detect": true
-});
+    });
+}
+
+/* Fallback visual para modelo 3D remoto */
+const heroModel = document.querySelector('.hero-model-3d');
+if (heroModel) {
+    const fallbackImage = heroModel.getAttribute('data-fallback-image');
+    const renderFallback = () => {
+        if (!fallbackImage || !heroModel.parentElement) return;
+        const image = document.createElement('img');
+        image.src = fallbackImage;
+        image.alt = heroModel.getAttribute('alt') || 'Vista previa industrial';
+        image.className = heroModel.className;
+        heroModel.replaceWith(image);
+    };
+
+    heroModel.addEventListener('error', renderFallback);
+}
 
 /* Chatbot Logic */
 const chatToggle = document.getElementById('chat-toggle');

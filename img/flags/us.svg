@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" viewBox="0 0 40 30" role="img" aria-label="Bandera de Estados Unidos">
+  <rect width="40" height="30" fill="#B22234"/>
+  <g fill="#fff">
+    <rect y="2" width="40" height="2"/>
+    <rect y="6" width="40" height="2"/>
+    <rect y="10" width="40" height="2"/>
+    <rect y="14" width="40" height="2"/>
+    <rect y="18" width="40" height="2"/>
+    <rect y="22" width="40" height="2"/>
+    <rect y="26" width="40" height="2"/>
+  </g>
+  <rect width="16" height="14" fill="#3C3B6E"/>
+</svg>
